@@ -1,10 +1,10 @@
 %h1= t('.coming_week')
 
 %table.event-list
-  - previous_date = nil
-  - Event.upcoming.each do |event|
+  - Event.upcoming.each_with_object(nil) do |event, previous_date|
     - date = event.starting_at.to_date
     - if previous_date != date
+      - previous_date = date
       %tr
         %th(colspan='2')= l(date, format: '%A').titleize
     %tr
