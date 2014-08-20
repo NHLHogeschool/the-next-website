@@ -6,6 +6,7 @@ gem 'sass-rails', github: 'rails/sass-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'normalize-rails'
+gem 'google-api-client'
 
 gem 'rails', '4.1.4'
 gem 'pg'
