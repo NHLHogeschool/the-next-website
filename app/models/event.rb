@@ -39,7 +39,7 @@ class Event
     date_time = DateTime.parse(date_time)
     return date_time if opts.blank?
 
-    range = (DateTime.now..DateTime.now + 1.week).map(&:to_date)
+    this_week = (Date.today..Date.today + 1.week)
 
     loop do
       rule  = case opts[:rule]
@@ -47,7 +47,7 @@ class Event
               end
 
       date_time += opts[:interval].to_i.send(rule)
-      return date_time if range.include?(date_time.to_date)
+      return date_time if this_week.include?(date_time.to_date)
     end
   end
 end
