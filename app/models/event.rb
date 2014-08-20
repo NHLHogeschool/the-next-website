@@ -3,7 +3,7 @@ require 'google/api_client'
 class Event
   def self.client
     client = Google::APIClient.new(application_name: 'The Next Website')
-    client.authorization.access_token = Google.access_token
+    client.authorization.access_token = TNW::Google.access_token
     client
   end
 
