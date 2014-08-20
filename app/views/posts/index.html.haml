@@ -1,0 +1,6 @@
+%h1 Berichten
+
+- @posts.each do |post|
+  %article
+    %h1= post.title
+    = markdown(post.body)

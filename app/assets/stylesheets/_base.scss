@@ -1,0 +1,8 @@
+@import 'bourbon';
+@import 'neat';
+
+$asset-pipeline: true;
+
+main {
+  @include outer-container;
+}
