@@ -1,0 +1,8 @@
+<h1>Berichten</h1>
+
+<% @posts.each do |post| %>
+  <article>
+    <h1><%= post.title %></h1>
+    <%= markdown(post.body) %>
+  </article>
+<% end %>
