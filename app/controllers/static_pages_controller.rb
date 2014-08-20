@@ -9,4 +9,8 @@ class StaticPagesController < ApplicationController
     @body  = open(GUIDE_URL).read
     render :show
   end
+
+  def callback
+    render text: request.env['omniauth.auth'].to_hash.inspect
+  end
 end

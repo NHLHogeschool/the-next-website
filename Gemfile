@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-google-oauth2'
+
 gem 'redcarpet'
 gem 'haml-rails', '~> 0.5.0'
 gem 'sass-rails', github: 'rails/sass-rails'
