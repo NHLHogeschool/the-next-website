@@ -1,7 +1,9 @@
 require 'google/api_client'
-require 'ostruct'
 
 class Event
+  include ActiveModel::Model
+  attr_accessor :title, :starting_at, :ending_at
+
   def self.client
     client = Google::APIClient.new(application_name: 'The Next Website')
     client.authorization.access_token = TNW::Google.access_token
@@ -25,7 +27,7 @@ class Event
     upcoming_events.map do |evt|
       regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
       opts = evt['recurrence'][1].match(regex)
-      OpenStruct.new(
+      new(
         starting_at: current_recurral(evt['start']['dateTime'], opts),
         ending_at: current_recurral(evt['end']['dateTime'], opts),
         title: evt['summary']
