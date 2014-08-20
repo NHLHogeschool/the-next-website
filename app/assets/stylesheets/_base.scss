@@ -5,4 +5,13 @@ $asset-pipeline: true;
 
 main {
   @include outer-container;
+
+  > section {
+    @include span-columns(8);
+  }
+
+  > aside {
+    @include span-columns(4);
+    @include omega;
+  }
 }
