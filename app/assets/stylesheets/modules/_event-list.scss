@@ -1,0 +1,19 @@
+.event-list {
+  width: 100%;
+
+  tr {
+    border-collapse: collapse;
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      @include span-columns(3 of 4);
+
+      &:first-child {
+        @include span-columns(1 of 4);
+      }
+    }
+  }
+}

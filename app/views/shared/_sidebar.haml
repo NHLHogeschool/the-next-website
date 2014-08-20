@@ -1,2 +1,14 @@
 %h1 Agenda
 
+%table.event-list
+  - previous_date = nil
+  - Event.upcoming.each do |event|
+    - date = event[:starting_at].to_date
+    - if previous_date != date
+      %tr
+        %th(colspan='2')= l(date, format: '%A').titleize
+    %tr
+      %td= l event[:starting_at], format: '%H:%M'
+      %td= event[:title]
+
+= link_to 'Volledige agenda', google_calendar_path
