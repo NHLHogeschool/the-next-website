@@ -1,4 +1,4 @@
-%h1 Agenda
+%h1= t('.coming_week')
 
 %table.event-list
   - previous_date = nil
@@ -11,4 +11,4 @@
       %td= l event.starting_at, format: '%H:%M'
       %td= event.title
 
-%p= link_to 'Volledige agenda', google_calendar_path
+%p= link_to t('.full_agenda'), google_calendar_path

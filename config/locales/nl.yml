@@ -1,0 +1,11 @@
+nl:
+  posts:
+    index:
+      title: 'Berichten'
+  shared:
+    sidebar:
+      coming_week: 'Agenda'
+      full_agenda: 'Volledige agenda'
+    header:
+      posts: 'Berichten'
+      guide: 'Handboek'
