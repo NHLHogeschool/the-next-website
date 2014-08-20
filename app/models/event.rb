@@ -2,9 +2,8 @@ require 'google/api_client'
 
 class Event
   def self.client
-    access_token = Rails.application.secrets.google_access_token
     client = Google::APIClient.new(application_name: 'The Next Website')
-    client.authorization.access_token = access_token
+    client.authorization.access_token = Google.access_token
     client
   end
 

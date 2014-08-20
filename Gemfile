@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'omniauth-google-oauth2'
+gem 'httparty'
+gem 'redis'
 
 gem 'redcarpet'
 gem 'haml-rails', '~> 0.5.0'
