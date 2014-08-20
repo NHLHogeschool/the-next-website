@@ -7,6 +7,7 @@ nl:
       coming_week: 'Agenda'
       full_agenda: 'Volledige agenda'
       today: 'Vandaag'
+      tomorrow: 'Morgen'
     header:
       posts: 'Berichten'
       guide: 'Handboek'

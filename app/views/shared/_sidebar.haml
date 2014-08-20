@@ -10,6 +10,8 @@
         %th(colspan='2')
           - if date.today?
             = t('.today')
+          - elsif (date - 1.day).today?
+            = t('.tomorrow')
           - else
             = l(date, format: '%A').titleize
     %tr
