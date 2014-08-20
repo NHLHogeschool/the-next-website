@@ -1,8 +1,12 @@
 class PostsController < ApplicationController
-  before_action :authenticate, except: :index
+  before_action :authenticate, except: [:index, :show]
 
   def index
     @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -15,6 +19,19 @@ class PostsController < ApplicationController
       redirect_to @post
     else
       render :new
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find params[:id]
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render :edit
     end
   end
 

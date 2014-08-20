@@ -1,9 +1,3 @@
 %h1 Berichten
 
-- @posts.each do |post|
-  %article
-    %h1= post.title
-    = markdown(post.body)
-
-    - if logged_in?
-      %p= link_to 'Bewerk deze post', [:edit, post]
+= render partial: 'post', collection: @posts

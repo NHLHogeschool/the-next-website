@@ -1,0 +1,6 @@
+%article
+  %h1= post.title
+  = markdown(post.body)
+
+  - if logged_in?
+    %p= link_to 'Bewerk deze post', [:edit, post]
