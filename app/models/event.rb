@@ -1,4 +1,5 @@
 require 'google/api_client'
+require 'ostruct'
 
 class Event
   def self.client
@@ -24,12 +25,11 @@ class Event
     upcoming_events.map do |evt|
       regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
       opts = evt['recurrence'][1].match(regex)
-      {
+      OpenStruct.new(
         starting_at: current_recurral(evt['start']['dateTime'], opts),
         ending_at: current_recurral(evt['end']['dateTime'], opts),
-        title: evt['summary'],
-        location: evt['location']
-      }
+        title: evt['summary']
+      )
     end
   end
 

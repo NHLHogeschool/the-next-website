@@ -1,5 +1,5 @@
 %article
-  %h1= post.title
+  %h1= link_to_unless params.key?(:id), post.title, post
   = markdown(post.body)
 
   - if logged_in?
