@@ -3,6 +3,9 @@
 
 $asset-pipeline: true;
 
+$primary-color: #8ec549;
+$secondary-color: #f69438;
+
 main {
   @include outer-container;
 
@@ -13,5 +16,13 @@ main {
   > aside {
     @include span-columns(4);
     @include omega;
+  }
+
+  > section > h1, > aside > h1 {
+    color: $primary-color;
+  }
+
+  a {
+    color: $secondary-color;
   }
 }

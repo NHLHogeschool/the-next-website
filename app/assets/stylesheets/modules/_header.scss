@@ -1,2 +1,35 @@
-.header {
+header {
+  h1, nav {
+    line-height: 75px;
+  }
+
+  h1 {
+    @include span-columns(3);
+
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: $primary-color;
+    }
+  }
+
+  nav {
+    @include span-columns(9);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        margin-right: $gutter;
+
+        a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
