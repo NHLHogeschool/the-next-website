@@ -18,9 +18,12 @@ class Event
 
   def self.upcoming_by_date
     obj = Hash.new { |hsh, key| hsh[key] = [] }
-    upcoming.each_with_object(obj) do |event, events|
+
+    hsh = upcoming.each_with_object(obj) do |event, events|
       events[event.starting_at.to_date] << event
     end
+
+    Hash[hsh.sort_by { |date, _events| date }]
   end
 
   def self.client
