@@ -5,7 +5,7 @@ class Event
   attr_accessor :title, :starting_at, :ending_at
 
   def self.upcoming
-    upcoming_events.map do |evt|
+    events = upcoming_events.map do |evt|
       regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
       opts = evt.key?('recurrence') ? evt['recurrence'][1].match(regex) : nil
       new(
@@ -14,6 +14,8 @@ class Event
         title: evt['summary']
       )
     end
+
+    events.sort_by { |event| event.starting_at }
   end
 
   def self.upcoming_by_date
