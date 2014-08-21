@@ -4,6 +4,25 @@ class Event
   include ActiveModel::Model
   attr_accessor :title, :starting_at, :ending_at
 
+  def self.upcoming
+    upcoming_events.map do |evt|
+      regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
+      opts = evt.key?('recurrence') ? evt['recurrence'][1].match(regex) : nil
+      new(
+        starting_at: current_recurral(evt['start']['dateTime'], opts),
+        ending_at: current_recurral(evt['end']['dateTime'], opts),
+        title: evt['summary']
+      )
+    end
+  end
+
+  def self.upcoming_by_date
+    obj = Hash.new { |hsh, key| hsh[key] = [] }
+    upcoming.each_with_object(obj) do |event, events|
+      events[event.starting_at.to_date] << event
+    end
+  end
+
   def self.client
     client = Google::APIClient.new(application_name: 'The Next Website')
     client.authorization.access_token = TNW::Google.access_token
@@ -21,18 +40,6 @@ class Event
                             }
                            )
     JSON.parse(output.response.body)['items']
-  end
-
-  def self.upcoming
-    upcoming_events.map do |evt|
-      regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
-      opts = evt.key?('recurrence') ? evt['recurrence'][1].match(regex) : nil
-      new(
-        starting_at: current_recurral(evt['start']['dateTime'], opts),
-        ending_at: current_recurral(evt['end']['dateTime'], opts),
-        title: evt['summary']
-      )
-    end
   end
 
   def self.current_recurral(date_time, opts)
