@@ -1,0 +1,9 @@
+.post-list {
+  article {
+    @extend .post;
+
+    h1 {
+      font-size: em(22);
+    }
+  }
+}

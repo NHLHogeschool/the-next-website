@@ -18,8 +18,11 @@ main {
     @include omega;
   }
 
-  > section > h1, > aside > h1 {
-    color: $primary-color;
+  > section, > aside {
+    > h1 {
+      color: $primary-color;
+      font-size: em(25);
+    }
   }
 
   a {
