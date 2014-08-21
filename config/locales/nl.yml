@@ -6,6 +6,7 @@ nl:
     sidebar:
       coming_week: 'Agenda'
       full_agenda: 'Volledige agenda'
+      no_events: 'De agenda is leeg.'
       today: 'Vandaag'
       tomorrow: 'Morgen'
     header:

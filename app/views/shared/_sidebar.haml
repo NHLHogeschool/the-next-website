@@ -1,18 +1,21 @@
 %h1= t('.coming_week')
 
 %table.event-list
-  - Event.upcoming_by_date.each do |date, events|
-    %tr
-      %th(colspan='2')
-        - if date.today?
-          = t('.today')
-        - elsif date == Date.today.tomorrow
-          = t('.tomorrow')
-        - else
-          = l(date, format: '%A').titleize
-    - events.each do |event|
+  - if upcoming_events_by_date.blank?
+    %p= t('.no_events')
+  - else
+    - upcoming_events_by_date.each do |date, events|
       %tr
-        %td= l event.starting_at, format: '%H:%M'
-        %td= event.title
+        %th(colspan='2')
+          - if date.today?
+            = t('.today')
+          - elsif date == Date.today.tomorrow
+            = t('.tomorrow')
+          - else
+            = l(date, format: '%A').titleize
+      - events.each do |event|
+        %tr
+          %td= l event.starting_at, format: '%H:%M'
+          %td= event.title
 
 %p= link_to t('.full_agenda'), google_calendar_path, target: '_blank'
