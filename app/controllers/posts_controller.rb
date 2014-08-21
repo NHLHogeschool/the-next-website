@@ -55,6 +55,6 @@ class PostsController < ApplicationController
 
     session[:logged_in] = true
 
-    return true
+    true
   end
 end
