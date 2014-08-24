@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :logged_in?, :upcoming_events_by_date
+  helper_method :logged_in?, :upcoming_events_by_date, :current_week
 
   def logged_in?
     session.key?(:logged_in)
@@ -10,5 +10,9 @@ class ApplicationController < ActionController::Base
 
   def upcoming_events_by_date
     @upcoming_events_by_date ||= Event.upcoming_by_date
+  end
+
+  def current_week
+    ( DateTime.now + 2.days ).cweek
   end
 end

@@ -1,4 +1,4 @@
-%h1= t('.coming_week', week_number: DateTime.now.cweek + 1)
+%h1= t('.coming_week', week_number: current_week)
 
 %table.event-list
   - if upcoming_events_by_date.blank?
