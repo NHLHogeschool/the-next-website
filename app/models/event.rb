@@ -6,7 +6,7 @@ class Event
 
   def self.upcoming
     events = upcoming_events.map do |evt|
-      regex = /^.+=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
+      regex = /^.+FREQ=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
       opts = evt.key?('recurrence') ? evt['recurrence'][1].match(regex) : nil
       new(
         starting_at: current_recurral(evt['start']['dateTime'], opts),
@@ -35,13 +35,16 @@ class Event
   end
 
   def self.upcoming_events
+    starting_at = (DateTime.now + 2.day).beginning_of_week
+    ending_at = starting_at + 1.week
+
     tnw_calendar_id = Rails.application.secrets.google_calendar_id
     cal = client.discovered_api('calendar', 'v3')
     output = client.execute(api_method: cal.events.list,
                             parameters: {
                               'calendarId' => tnw_calendar_id,
-                              'timeMin' => DateTime.now,
-                              'timeMax' => DateTime.now + 1.week
+                              'timeMin' => starting_at,
+                              'timeMax' => ending_at
                             }
                            )
     JSON.parse(output.response.body)['items']
