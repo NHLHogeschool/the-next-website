@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.post-form').on 'keyup', 'textarea', ->
+    window.$textarea = $(this)
+    remaining = 140 - $textarea.val().length
+    $('.character-count').html(remaining)
