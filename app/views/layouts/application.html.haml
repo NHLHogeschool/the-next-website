@@ -2,10 +2,13 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : 'Minor The Next Web'
+    %link(href='//fonts.googleapis.com/css?family=Varela+Round:400' rel='stylesheet' type='text/css')
+
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = auto_discovery_link_tag :atom, feed_path
+
   %body
     %main
       = render 'shared/header'
