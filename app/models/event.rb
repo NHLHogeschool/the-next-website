@@ -47,6 +47,7 @@ class Event
                               'timeMax' => ending_at
                             }
                            )
+
     JSON.parse(output.response.body)['items']
   end
 
