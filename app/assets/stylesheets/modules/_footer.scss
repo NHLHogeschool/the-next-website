@@ -2,10 +2,15 @@ footer {
   @include span-columns(12);
 
   border-top: #ccc 1px solid;
+  color: #ddd;
   padding-top: 15px;
   margin-top: $gutter;
 
   a {
     color: #ccc;
+  }
+
+  > a {
+    float: right;
   }
 }

@@ -10,7 +10,7 @@ header {
     margin: 0;
     padding: 0;
 
-    @include span-columns(2);
+    @include span-columns(1);
 
     a {
       color: $primary-color;
@@ -34,7 +34,7 @@ header {
   }
 
   nav {
-    @include span-columns(10);
+    @include span-columns(11);
     @include omega;
 
     ul {
@@ -48,6 +48,13 @@ header {
 
         a {
           font-weight: bold;
+        }
+
+        &.root a {
+          color: black;
+          font-weight: normal;
+          padding-left: $gutter;
+          text-decoration: none;
         }
       }
     }
