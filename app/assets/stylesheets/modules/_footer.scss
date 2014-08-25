@@ -1,14 +1,18 @@
 footer {
   @include span-columns(12);
 
-  border-top: #ddd 1px solid;
-  color: #ddd;
+  background: #eee;
+  color: white;
   font-size: 13px;
-  padding-top: 15px;
+  padding: 10px;
   margin-top: $gutter;
 
+  &:hover {
+    background-color: #ccc;
+  }
+
   a {
-    color: #ccc;
+    color: white;
   }
 
   > a {
