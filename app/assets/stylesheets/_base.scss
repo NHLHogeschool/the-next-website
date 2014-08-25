@@ -8,7 +8,9 @@ $secondary-color: #6196a9;
 
 main {
   @include outer-container;
+
   font-family: 'Varela Round';
+  margin-bottom: $gutter * 2;
 
   > section {
     @include span-columns(8);
