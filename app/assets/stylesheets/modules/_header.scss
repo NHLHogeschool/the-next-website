@@ -11,24 +11,28 @@ header {
     padding: 0;
 
     @include span-columns(1);
+    $logo-width: 346 / 4;
+    $logo-width-px: unquote("#{$logo-width}px");
 
     a {
-      color: $primary-color;
-      display: block;
-      @include retina-image(logo, 364px 75px);
-      @include size(91px 75px);
+      @include retina-image(logo, 346px 75px);
       @include hide-text;
 
+      color: $primary-color;
+      display: block;
+      height: 75px;
+      width: $logo-width-px;
+
       &.state-2 {
-        background-position: -91px;
+        background-position: unquote("-#{$logo-width}px");
       }
 
       &.state-3 {
-        background-position: -182px;
+        background-position: unquote("-#{$logo-width * 2}px");
       }
 
       &.state-4 {
-        background-position: -273px;
+        background-position: unquote("-#{$logo-width * 3}px");
       }
     }
   }
