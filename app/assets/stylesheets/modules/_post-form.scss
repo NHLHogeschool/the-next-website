@@ -1,0 +1,12 @@
+.post-form {
+  #{$all-text-inputs} {
+    font-size: 120%;
+    padding: 7px;
+    width: 500px;
+  }
+
+  textarea {
+    padding: 7px;
+    width: 100%;
+  }
+}

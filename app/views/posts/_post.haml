@@ -3,5 +3,7 @@
   = markdown(post.body)
 
   - if logged_in?
-    %p= link_to 'Bewerk deze post', [:edit, post]
-    %p= link_to 'Verwijder deze post', post, method: :delete
+    %p.admin-buttons
+      = link_to 'Bewerk deze post', edit_admin_post_path(post)
+      \-
+      = link_to 'Verwijder deze post', [:edit, post], method: :delete

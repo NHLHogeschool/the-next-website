@@ -1,0 +1,10 @@
+%h1 Alle berichten
+
+%p= link_to 'Nieuw bericht', new_admin_post_path
+
+%table
+  - for post in @posts
+    %tr
+      %td= link_to post.title, edit_admin_post_path(post)
+      %td= l post.created_at, format: :short
+      %td= link_to 'Verwijder', post, method: :delete
