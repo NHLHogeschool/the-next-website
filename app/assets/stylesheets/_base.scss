@@ -6,19 +6,38 @@ $asset-pipeline: true;
 $primary-color: #5e240f;
 $secondary-color: #6196a9;
 
+$mobile: new-breakpoint(max-width 480px 4);
+
 main {
   @include outer-container;
 
   font-family: 'Varela Round';
   margin-bottom: $gutter * 2;
 
+  @include media($mobile) {
+    margin-bottom: 0;
+
+    > section > *, > aside > * {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
   > section {
     @include span-columns(8);
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 
   > aside {
     @include span-columns(4);
     @include omega;
+
+    @include media($mobile) {
+      @include span-columns(4);
+    }
   }
 
   > section, > aside {

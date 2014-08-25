@@ -1,8 +1,16 @@
 header {
-  height: 75px;
-  margin: $gutter 0;
+  @include span-columns(12);
+  @include omega;
 
-  h1, nav {
+  @include media($mobile) {
+    @include span-columns(4);
+    margin-bottom: 0;
+  }
+
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+
+  nav {
     line-height: 75px;
   }
 
@@ -11,15 +19,21 @@ header {
     padding: 0;
 
     @include span-columns(1);
+
     $logo-width: 346 / 4;
     $logo-width-px: unquote("#{$logo-width}px");
+
+    @include media($mobile) {
+      @include span-columns(4);
+      text-align: center;
+    }
 
     a {
       @include retina-image(logo, 346px 75px);
       @include hide-text;
 
       color: $primary-color;
-      display: block;
+      display: inline-block;
       height: 75px;
       width: $logo-width-px;
 
@@ -41,6 +55,14 @@ header {
     @include span-columns(11);
     @include omega;
 
+    @include media($mobile) {
+      @include span-columns(4);
+      line-height: 25px;
+      margin-top: $gutter;
+      margin-bottom: $gutter;
+      text-align: center;
+    }
+
     ul {
       list-style: none;
       margin: 0;
@@ -49,6 +71,10 @@ header {
       li {
         display: inline-block;
         margin-right: $gutter;
+
+        @include media($mobile) {
+          @include span-columns(4);
+        }
 
         a {
           font-weight: bold;
@@ -59,6 +85,11 @@ header {
           font-weight: normal;
           padding-left: $gutter;
           text-decoration: none;
+
+          @include media($mobile) {
+            padding-left: 0;
+            margin-bottom: $gutter / 2;
+          }
         }
       }
     }

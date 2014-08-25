@@ -20,4 +20,13 @@ footer {
   > a {
     float: right;
   }
+
+  @include media($mobile) {
+    @include span-columns(4);
+    position: static;
+
+    > a {
+      display: none;
+    }
+  }
 }
