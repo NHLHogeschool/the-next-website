@@ -3,6 +3,7 @@
   %head
     %title= content_for?(:title) ? yield(:title) : 'Minor The Next Web'
     %link(href='//fonts.googleapis.com/css?family=Varela+Round:400' rel='stylesheet' type='text/css')
+    %meta(name="viewport" content="width=device-width, initial-scale=1")
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
