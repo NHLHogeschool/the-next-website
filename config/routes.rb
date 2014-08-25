@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'posts#index'
 
-  resources :posts, path: 'berichten'
+  resources :posts, path: 'berichten', only: [:show, :index]
   get '/feed' => 'posts#index', as: :feed, defaults: { format: :atom }
 
   get 'handboek' => 'static_pages#guide', as: :guide
