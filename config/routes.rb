@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :posts, path: 'berichten'
   get 'handboek' => 'static_pages#guide', as: :guide
 
-  get '/admin' => 'posts#index', as: :admin
+  get '/admin' => 'admin/posts#index', as: :admin
   namespace :admin do
     resources :posts
   end
