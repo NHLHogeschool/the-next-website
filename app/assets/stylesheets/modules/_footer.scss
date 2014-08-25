@@ -1,8 +1,9 @@
 footer {
   @include span-columns(12);
 
-  border-top: #ccc 1px solid;
+  border-top: #ddd 1px solid;
   color: #ddd;
+  font-size: 13px;
   padding-top: 15px;
   margin-top: $gutter;
 
