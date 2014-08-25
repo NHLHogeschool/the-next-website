@@ -12,3 +12,6 @@ $ ->
     setTimeout nextState, 2000
 
   nextState()
+
+  $('footer a').each (idx) ->
+    $(this).attr('target', '_blank')
