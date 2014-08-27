@@ -50,4 +50,32 @@ main {
   a {
     color: $secondary-color;
   }
+
+  table {
+    width: 100%;
+
+    tr {
+      td, th {
+        padding: 5px 10px;
+      }
+
+      th {
+        background: $secondary-color;
+        color: white;
+      }
+
+      &:nth-child(odd) td {
+        background: #eee;
+      }
+    }
+  }
+
+  .table-wrapper {
+    width: 100%;
+
+    @include media($mobile) {
+      overflow: auto;
+      margin: 0 0 $gutter;
+    }
+  }
 }
