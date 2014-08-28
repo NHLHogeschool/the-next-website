@@ -4,9 +4,9 @@ nl:
       title: 'Berichten'
   shared:
     sidebar:
-      coming_week: 'Agenda voor week %{week_number}'
+      coming_week: 'Week %{week_number}'
       full_agenda: 'Volledige agenda'
-      no_events: 'De agenda is leeg.'
+      no_events: 'Je hebt een weekje vrij.'
       today: 'Vandaag'
       tomorrow: 'Morgen'
     header:
