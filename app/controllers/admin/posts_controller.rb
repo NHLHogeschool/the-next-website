@@ -50,13 +50,13 @@ module Admin
 
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
-        username == Rails.application.secrets.cms_username &&
-        password == Rails.application.secrets.cms_password
+        if username == Rails.application.secrets.cms_username &&
+           password == Rails.application.secrets.cms_password
+          session[:logged_in] = true
+        else
+          false
+        end
       end
-
-      session[:logged_in] = true
-
-      true
     end
   end
 end
