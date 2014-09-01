@@ -8,6 +8,7 @@ class Event
     events = upcoming_events.map do |evt|
       regex = /^.+FREQ=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
       opts = evt.key?('recurrence') ? evt['recurrence'][1].match(regex) : nil
+      next nil if evt['start'].key?('date')
       new(
         starting_at: current_recurral(evt['start']['dateTime'], opts),
         ending_at: current_recurral(evt['end']['dateTime'], opts),
@@ -15,7 +16,7 @@ class Event
       )
     end
 
-    events.sort_by { |event| event.starting_at }
+    events.delete_if(&:blank?).sort_by { |event| event.starting_at }
   end
 
   def self.upcoming_by_date
