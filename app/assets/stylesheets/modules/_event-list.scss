@@ -1,6 +1,10 @@
 .event-list {
   width: 100%;
 
+  @include media($mobile) {
+    margin-left: 0;
+  }
+
   tr {
     border-collapse: collapse;
 
@@ -9,10 +13,8 @@
     }
 
     td {
-      @include span-columns(3 of 4);
-
       &:first-child {
-        @include span-columns(1 of 4);
+        width: 1px;
       }
     }
   }
