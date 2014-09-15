@@ -76,6 +76,14 @@ header {
           @include span-columns(4);
         }
 
+        &.mobile-only {
+          display: none;
+
+          @include media($mobile) {
+            display: inline-block;
+          }
+        }
+
         a {
           font-weight: bold;
         }

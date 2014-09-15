@@ -35,6 +35,10 @@ main {
     @include span-columns(4);
     @include omega;
 
+    h1 a {
+      color: $primary-color;
+    }
+
     @include media($mobile) {
       @include span-columns(4);
     }
