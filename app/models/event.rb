@@ -36,8 +36,8 @@ class Event
   end
 
   def self.upcoming_events
-    starting_at = (DateTime.now + 2.day).beginning_of_week
-    ending_at = starting_at + 1.week
+    starting_at = DateTime.now
+    ending_at = starting_at.end_of_week
 
     tnw_calendar_id = Rails.application.secrets.google_calendar_id
     cal = client.discovered_api('calendar', 'v3')
