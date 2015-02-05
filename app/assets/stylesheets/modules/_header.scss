@@ -1,3 +1,6 @@
+$logo-width: 346 / 4;
+$logo-width-px: unquote("#{$logo-width}px");
+
 header {
   @include span-columns(12);
   @include omega;
@@ -20,9 +23,6 @@ header {
 
     @include span-columns(1);
 
-    $logo-width: 346 / 4;
-    $logo-width-px: unquote("#{$logo-width}px");
-
     @include media($mobile) {
       @include span-columns(4);
       text-align: center;
@@ -31,23 +31,12 @@ header {
     a {
       @include retina-image(logo, 346px 75px);
       @include hide-text;
+      @include animation(logo 6s steps(4) infinite);
 
       color: $primary-color;
       display: inline-block;
       height: 75px;
       width: $logo-width-px;
-
-      &.state-2 {
-        background-position: unquote("-#{$logo-width}px");
-      }
-
-      &.state-3 {
-        background-position: unquote("-#{$logo-width * 2}px");
-      }
-
-      &.state-4 {
-        background-position: unquote("-#{$logo-width * 3}px");
-      }
     }
   }
 
@@ -102,4 +91,9 @@ header {
       }
     }
   }
+}
+
+@include keyframes(logo) {
+  0% { background-position: 0 0; }
+  100% { background-position: unquote("#{$logo-width * -4}px") 0; }
 }
