@@ -6,8 +6,8 @@ class Event
 
   def self.upcoming
     events = upcoming_events.map do |evt|
-      regex = /^.+FREQ=(?<rule>[^;]+);.+(?<interval>[0-9]+)$/
-      opts = evt.key?('recurrence') ? evt['recurrence'][0].match(regex) : nil
+      regex = /FREQ=(?<rule>[^;]+)(;.+(?<interval>[0-9]+))?/
+      opts = evt.key?('recurrence') ? evt['recurrence'].join.match(regex) : nil
       next nil if evt['start'].key?('date')
       new(
         starting_at: current_recurral(evt['start']['dateTime'], opts),
@@ -57,6 +57,7 @@ class Event
     return date_time if opts.blank?
 
     this_week = (Date.today..Date.today + 1.week)
+    interval = opts[:interval].blank? ? 1 : opts[:interval].to_i
 
     loop do
       rule = case opts[:rule]
@@ -64,7 +65,7 @@ class Event
              end
 
       return date_time if this_week.include?(date_time.to_date)
-      date_time += opts[:interval].to_i.send(rule)
+      date_time += interval.send(rule)
     end
   end
 end
