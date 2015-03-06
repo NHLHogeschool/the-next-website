@@ -14,7 +14,7 @@ header {
   margin-bottom: $gutter;
 
   nav {
-    line-height: 75px;
+    line-height: 100px;
   }
 
   h1 {
@@ -29,14 +29,14 @@ header {
     }
 
     a {
-      @include retina-image(logo, 346px 75px);
       @include hide-text;
-      @include animation(logo 6s steps(4) infinite);
 
+      background-image: image-url('logo.gif');
+      background-size: cover;
       color: $primary-color;
       display: inline-block;
-      height: 75px;
-      width: $logo-width-px;
+      height: 100px;
+      width: 100px;
     }
   }
 
@@ -91,9 +91,4 @@ header {
       }
     }
   }
-}
-
-@include keyframes(logo) {
-  0% { background-position: 0 0; }
-  100% { background-position: unquote("#{$logo-width * -4}px") 0; }
 }
