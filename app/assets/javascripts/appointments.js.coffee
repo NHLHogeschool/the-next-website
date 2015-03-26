@@ -35,10 +35,17 @@ $ ->
         email: 'amarins.schuilenburg@nhl.nl'
 
     $skill_select = $('<select/>')
+
+    $option = $('<option/>').html('')
+    $skill_select.append($option)
+
     $skill_select.change (evt) ->
       $('article').remove()
 
-      teacher = TEACHERS[$(this).val()]
+      key = $(this).val()
+      return unless key.length
+
+      teacher = TEACHERS[key]
       $info = $('<article/>')
       $info.append $('<h3/>').html(teacher.name)
 
