@@ -6,7 +6,7 @@ nl:
     new:
       title: 'Afspraak maken'
       loading: 'Bezig met laden…'
-      explanation: 'Kies de competentie waarover je een consult wilt plannen.'
+      explanation: 'Kies het onderwerp waarover je een consult wilt plannen.'
   shared:
     sidebar:
       coming_week: 'Week %{week_number}'
