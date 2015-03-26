@@ -2,6 +2,10 @@ nl:
   posts:
     index:
       title: 'Berichten'
+  appointments:
+    new:
+      title: 'Afspraak maken'
+      loading: 'Bezig met laden…'
   shared:
     sidebar:
       coming_week: 'Week %{week_number}'
@@ -13,3 +17,4 @@ nl:
       posts: 'Berichten'
       guide: 'Minorhandboek'
       agenda: 'Agenda'
+      appointment: 'Afspraak maken'

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :posts, path: 'berichten', only: [:show, :index]
   get '/feed' => 'posts#index', as: :feed, defaults: { format: :atom }
 
-  get 'handboek' => 'static_pages#guide', as: :guide
+  get '/handboek' => 'static_pages#guide', as: :guide
+  get '/afspraak' => 'appointments#new', as: :new_appointment
 
   get '/admin' => 'admin/posts#index', as: :admin
   namespace :admin do
