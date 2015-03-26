@@ -30,7 +30,7 @@ $ ->
         email: 'd.s.de.vries@nhl.nl'
       amarins:
         name: 'Amarins Schuilenburg'
-        skills: ['Persoonlijke Professionele Ontwikkeling']
+        skills: ['Project Management']
         working_days: [0, 1, 2, 3, 4]
         email: 'amarins.schuilenburg@nhl.nl'
 
