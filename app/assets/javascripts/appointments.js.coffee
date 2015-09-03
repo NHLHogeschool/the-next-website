@@ -23,11 +23,6 @@ $ ->
                  'Usability', 'Experience Design']
         working_days: [0, 1, 2, 3]
         email: 'j.p.a.smeets@nhl.nl'
-      dirksierd:
-        name: 'Dirk Sierd de Vries'
-        skills: ['Ruby on Rails', 'JavaScript', 'PHP']
-        working_days: [1, 3, 4]
-        email: 'd.s.de.vries@nhl.nl'
       amarins:
         name: 'Amarins Schuilenburg'
         skills: ['Project Management']
